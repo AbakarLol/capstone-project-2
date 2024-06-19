@@ -90,9 +90,7 @@ h3 {
   padding-right: 5rem;
 }
 
-.image{
 
-}
 
 button {
   background-color: #000;
@@ -106,8 +104,9 @@ button {
 }
 
 footer {
-  margin-top: 70vh;
-  z-index: 500;
+  position: relative;
+  margin-top: 75vh;
+  z-index: 400;
   width: 100%;
   height: 100vh;
 
@@ -116,7 +115,8 @@ footer {
   justify-content: space-evenly;
   align-items: flex-end;
   padding: 7rem 2vw;
-  position: relative;
+  
+  
 }
 
 footer::before {
@@ -124,6 +124,7 @@ footer::before {
   position: absolute;
   inset: 0;
   background: linear-gradient(
+
     rgba(238, 238, 238, 0) 2.5%,
     rgb(238, 238, 238, 0.3) 10%,
     rgb(238, 238, 238, 0.6) 15%,
@@ -135,42 +136,65 @@ footer::before {
   z-index: -7;
   
 }
-.navbar{
+
+div.navbar{
   position : fixed;
-  height: 4.5rem;
   z-index: 800;
-  
+  height: 4.5rem;
   margin: 0;
   border-radius: 8%;
   padding: 0;
   margin: 0;
+  
+  
 
 }
-.mon-nav{
- position: fixed;
- position: relative;
+.nav-container{
+  position: relative;
+  padding: 0 auto;
+  
+
+}
+
+
+.list-div{
+  padding: 0 !important;
+
+}
+
+.monnav{
+position: relative;
  width: auto;
  top: 0;
  left: 0;
  opacity: 1;
  visibility: inherit;
- background-color: #7878781a;
  padding: 0 1rem !important;
+ z-index: 800;
+ backdrop-filter: blur(20px);
+ background-color: rgba(120, 120, 120, 0.2) ;
+ border: 0px solid;
+ border-radius: 5px;
  
- 
- 
+  
 }
 
+
+
+
 .nav-link{
-  color: #0f1012;
+  
   font-size: calc(0.25* var(--m));
-  padding : 0.6rem  1rem;
+  padding : 0.4rem  1rem;
+
 
   
 }
 
 .navlist{
   display: flex;
+ 
+  
   
 }
 
@@ -261,8 +285,13 @@ a {
   }
 }
 
+@media screen and (max-width: 1200px) {
+  :root {
+    --m: 3.2rem;
+  }
+}
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
   footer {
     flex-direction: column;
     padding: 5rem 20vw;
@@ -273,6 +302,224 @@ a {
   .card{
     height: calc(14 * var(--m));
   }
+
+  div.navbar{
+  display: flex;
+  flex-direction: row;
+  position : fixed;
+  width: 100%;
+  z-index: 800;
+  height: auto;
+  margin: 0;
+  
+  padding: 0;
+  justify-content: space-between;
+
+  
+  
+
+}
+.nav-container{
+
+  position: relative;
+  
+  padding: 0;
+  
+
+}
+
+
+.list-div{
+  padding: 0 ;
+
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+  .monnav{
+    
+    justify-content: space-between;
+    
+
+    flex-basis: 100%;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    opacity: 1;
+    visibility: inherit;
+    padding: 0 0;
+    text-align: start;
+    z-index: 800;
+    backdrop-filter: blur(20px);
+    background-color: rgba(120, 120, 120, 0.2) ;
+    
+  
+}
+
+body > div.navbar > div > nav > div > button{
+  margin: 0.4rem;
+  color: rgba(255, 255, 245, 0.4);
+  backdrop-filter: invert(20%) blur(0%);
+}
+
+
+
+.nav-link{
+  
+  font-size: calc(0.5* var(--m));
+  padding : 0.4rem  1rem;
+
+
+  
+}
+
+.navlist{
+  display: flex;
+ 
+  
+  
+}
+
+
+
+.main {
+
+  height: 85vh  /* calc(12 * var(--m)) */;
+  width: calc(26 * var(--m));
+  color: black;
+  border-radius: calc(0 * var(--m));
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--m);
+
+  position: fixed;
+  margin: calc(0 * var(--m)) calc(5 * var(--m)) calc(0 * var(--m))
+    calc(5 * var(--m));
+  visibility: visible;
+  opacity: 1;
+  min-height: 768px;
+  font-family: PP Neue system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+.introduction{
+  width: 100%;  
+  display: flex;
+  flex-direction: row;
+  
+  align-items: center;
+  justify-content: center;
+ 
+  
+}
+
+
+.presentation{
+  align-self: center;
+  justify-content : flex-start;
+  
+}
+#presentation{
+  max-width: 768px;
+  flex-basis :50%;
+  align-self: center;
+  justify-content: center;
+  align-content: center;
+  padding: 0;
+}
+.presentation > p{
+  text-align: center;
+  margin-left: 0;
+  padding-left: 0;
+  padding-bottom:0;
+
+}
+
+.image img{
+  height: 45%;
+  width: 40%;
+  position: relative;
+  top: 2rem;
+  right : 0;
+  padding-right: 0;
+}
+
+
+
+}
+
+@media  screen and (max-width: 992px) {
+  .main {
+
+    height: 85vh  /* calc(12 * var(--m)) */;
+    width: calc(26 * var(--m));
+    color: black;
+    border-radius: calc(0 * var(--m));
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--m);
+  
+    position: fixed;
+    margin: calc(0 * var(--m)) calc(5 * var(--m)) calc(0 * var(--m))
+      calc(5 * var(--m));
+    visibility: visible;
+    opacity: 1;
+    min-height: 768px;
+    font-family: PP Neue system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  
+  .introduction{
+    width: 100%;  
+    display: flex;
+    flex-direction: row;
+    
+    align-items: center;
+    justify-content: center;
+   
+    
+  }
+  
+  
+  .presentation{
+    align-self: center;
+    justify-content : flex-start;
+    
+  }
+  #presentation{
+    max-width: 768px;
+    flex-basis :50%;
+    align-self: center;
+    justify-content: center;
+    align-content: center;
+    padding: 0;
+  }
+  .presentation > p{
+    text-align: center;
+    margin-left: 0;
+    padding-left: 0;
+    padding-bottom:0;
+  
+  }
+  
+  .image img{
+    height: 45%;
+    width: 40%;
+    position: relative;
+    top: 2rem;
+    right : 0;
+    padding-right: 0;
+  }
+  
+  
 }
 @media only screen and (min-width: 834px) {
   :root {
