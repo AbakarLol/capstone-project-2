@@ -82,6 +82,14 @@ h3 {
 
 }
 
+.dynamic-text {
+  border-right: 2px solid rgba(0, 113, 227, 1.0);
+  white-space: nowrap;
+  overflow: hidden;
+  color: rgba(0, 113, 227, 1.0);
+  animation: cursor .2s step-end infinite alternate;
+}
+
 .image img{
   height: 85vh;
   position: relative;
@@ -144,7 +152,7 @@ div.navbar{
   margin: 0;
   border-radius: 8%;
   padding: 0;
-  margin: 0;
+  margin: 1rem 0 0 0;
   
   
 
@@ -172,7 +180,7 @@ position: relative;
  padding: 0 1rem !important;
  z-index: 800;
  backdrop-filter: blur(20px);
- background-color: rgba(120, 120, 120, 0.2) ;
+ background-color: rgba(120, 120, 120, 0.2);
  border: 0px solid;
  border-radius: 5px;
  
@@ -184,8 +192,11 @@ position: relative;
 
 .nav-link{
   
-  font-size: calc(0.25* var(--m));
+  font-size: calc(0.26* var(--m));
   padding : 0.4rem  1rem;
+  margin-left: 1rem ;
+  margin-right: 1rem;
+  color: #000;
 
 
   
@@ -278,6 +289,45 @@ a {
   align-items: center;
 }
 
+.resetbgc{
+  background-color: rgba(15, 16, 18, 1);
+}
+
+
+.myname{
+  font-weight: bolder;
+  
+}
+
+.marketing p, .marketing h2{
+  animation: fade both linear;
+  
+  animation-timeline: view();
+  animation-range: entry 100% cover 50%;
+}
+
+
+
+@keyframes fade{
+  from{
+    opacity: 0;
+    transform: translateY(100%);
+    transform: translateX(-2%);
+    
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0%);
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes cursor{
+  50% {border-color: transparent;}
+}
+
+
 
 @media screen and (max-width: 1000px) {
   :root {
@@ -302,7 +352,6 @@ a {
   .card{
     height: calc(14 * var(--m));
   }
-
   div.navbar{
   display: flex;
   flex-direction: row;
@@ -360,7 +409,7 @@ a {
 
 body > div.navbar > div > nav > div > button{
   margin: 0.4rem;
-  color: rgba(255, 255, 245, 0.4);
+  color: rgb(221, 221, 221, 0.4);
   backdrop-filter: invert(20%) blur(0%);
 }
 
