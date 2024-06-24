@@ -1,8 +1,150 @@
 @import url("https://fonts.googleapis.com/css?family=IBM%20Plex%20Sans:500|IBM%20Plex%20Sans:300");
 
-:root {
+:root{
   --m: 4rem;
 }
+
+
+:root {
+  
+  --dark: #252A2E;
+	--light: rgb(0, 113, 227);
+	--background: var(--light);
+	--text: var(--dark);
+	--border: var(--dark);
+ 
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: var(--dark);
+		--text: var(--light);
+		--border: var(--light);
+	}
+}
+
+#icon-grid{
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+/*	BASIC STYLING FOR THE DEMO */
+#icon-grid {
+	display: grid;
+	min-block-size: 65vh;
+	place-content: center;
+  
+	background: var(--background);
+	color: var(--text);
+}
+
+/*	CURRENT MAX WIDTH IS JUST FOR DEMO PURPOSES */
+.tag-scrollers {
+	width: 100vw;
+	
+	overflow: hidden;
+}
+
+
+
+/*	POSSIBLY UPDATE COLORS IN THE GRADIENT
+		TO MATCH THE PROJECTS DESIGN SYSTEM
+*/
+.tag-scroller {
+	display: grid;
+	gap: 1.5rem;
+	mask: linear-gradient(90deg, #0000, var(--background) 15%, var(--background) 85%, #0000);
+}
+
+.tag-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	/*	IF THE GAP IS CHANGED, DON'T FORGET TO CHANGE 
+			THE TRANSFORM VALUE IN THE SCROLL ANIMATION
+			AT THE END OF THE STYLING
+	*/
+	gap: 1.5rem;
+}
+
+/*	IF THE USERS PREFERS REDUCED MOTION
+		PRESENT THEM WITH A HOROZONTAL LIST
+		OF ALL ELEMENTS AND GIVE THEM THE
+		OPTION TO MANUALLY SCROLL BY SWIPING
+*/
+@media (prefers-reduced-motion) {
+	.tag-list {
+		flex-flow: row nowrap;
+		overflow: auto;
+		scrollbar-width: none;
+		scrollbar-color: transparent transparent;
+	}
+	.tag-list::-webkit-scrollbar-track {
+		background: transparent;
+	}
+	.tag-list::-webkit-scrollbar-thumb {
+		background: transparent;
+	}
+	.tag-list::-webkit-scrollbar {
+		display: none;
+		width: 0;
+		height: 0;
+	}
+}
+
+/*	BASIC STYLING OF THE LIST ITEMS
+		FOR DEMO PURPOSES. MOST PROPERTIES
+		SHOULD BE KEPT AS IS BUT PROBABLY
+		UPDATE THE VALUE FOR font-family
+		AND border
+*/
+.tag-list li {
+	font-family: system-ui;
+	font-size: 1.125rem;
+	line-height: 1;
+	padding: 0.625rem 1.375rem;
+	border: 2px solid var(--border);
+	border-radius: 10ch;
+	white-space: nowrap;
+}
+
+/*	THE DURATION IS SET FROM A CUSTOM PROPERTY
+		CALCULATED IN THE SCRIPT AS IT'S ONLY NEEDED
+		IF THE ANIMATION SHOULD RUN, WHICH IS ALSO
+		CHECKED BY THE SCRIPT
+
+		THE DIRECTION IS SET TO normal AS DEFULT
+		AND THEN SET TO reverse	FOR EVERY OTHER SCROLLER
+*/
+.tag-scroller.scrolling .tag-list {
+	width: max-content;
+	flex-wrap: nowrap;
+	animation: horizontal-scroll var(--duration) var(--direction, normal) linear infinite;
+}
+
+.tag-scroller.scrolling .tag-list:nth-child(even) {
+	--direction: reverse;
+}
+
+/* PAUSING THE ANIMATION ON HOVER */
+.tag-scroller:hover .tag-list {
+	animation-play-state: paused;
+}
+
+@keyframes horizontal-scroll {
+	to {
+		/*	0.75rem FOR HALF THE GAP
+				OF THE .tag-scroller
+		*/
+		transform: translateX(calc(-50% - .75rem));
+	}
+}
+
+
 
 * {
   box-sizing: border-box;
@@ -25,6 +167,8 @@ body {
   font-size: calc(0.3 * var(--m));
   
 }
+
+
 
 h2 {
   font-weight: 500;
@@ -300,11 +444,11 @@ a {
   
 }
 
-.marketing p, .marketing h2{
+.marketing p, .marketing h2, .skills h2{
   animation: fade both linear;
   
   animation-timeline: view();
-  animation-range: entry 80% cover 50%;
+  animation-range: entry 70% cover 50%;
 }
 
 
@@ -376,10 +520,37 @@ a {
 }
 
 #icon-grid{
-  background-color: white;
+  background-color: rgba(239, 239, 239);
   position: relative;
-  z-index: 800;
+  color: rgba(15, 16, 18, 1);
+  z-index: 500;
+  touch-action: none;
+  height: 100%;
+  margin: 0;
 }
+
+.click{
+  color: rgba(0, 113, 227, 1.0);
+  opacity: 1 !important;
+  
+
+  
+ 
+}
+
+
+.skills{
+  background-color: rgba(239, 239, 239);
+  position: relative;
+  color: rgb(160, 160, 160);
+  z-index: 500;
+  touch-action: none;
+  margin: 0 ;
+  padding-top: 2rem;
+  
+
+}
+
 
 
 @media screen and (max-width: 1000px) {
@@ -569,7 +740,29 @@ body > div.navbar > div > nav > div > button{
   height: 100%;
   
 }
+#icon-grid {
+	display: grid;
+	min-block-size: 70vh;
+	place-content: center;
+	
+}
 
+/*	CURRENT MAX WIDTH IS JUST FOR DEMO PURPOSES */
+.tag-scrollers {
+	max-width : 100vw;
+
+	
+	overflow: hidden;
+}
+
+
+
+.tag-scroller {
+	display: grid;
+	gap: 1.5rem;
+	mask: linear-gradient(90deg, #0000, var(--background) 15%, var(--background) 85%, #0000);
+  
+}
 
 
 }
