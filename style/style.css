@@ -407,7 +407,7 @@ position: relative;
 
 /*
 img {
-  height: calc(0.3 * var(--m));
+  height: calc(0.3 * var(--m))
   object-fit: cover;
 } */
 
