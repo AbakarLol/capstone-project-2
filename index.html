@@ -10,35 +10,34 @@
       
     </style>
      <script>
-      // Change background color of navbar when scrolling past a specific point
       window.addEventListener('scroll', function() {
-        const monnav = document.querySelector('.monnav');
-        const whitebrand = document.querySelector('a.navbar-brand');
-        const whitetextl1 = document.querySelector('a#navlink.nav-link.l1');
-        const whitetextl2 = document.querySelector('a#navlink.nav-link.l2');
-        const whitetextl3 = document.querySelector('a#navlink.nav-link.l3');
-        const whitetextl4 = document.querySelector('a#navlink.nav-link.l4');
-        const scrollPosition = window.scrollY || window.pageYOffset;
-  
-        // Change 100 to the specific scroll position you want
-        if (scrollPosition > 900) {
-          monnav.style.backgroundColor = 'rgba(120, 120, 120, 0.2)'; 
-          whitebrand.style.color = 'rgb(255, 255, 255)';
-          whitetextl1.style.color = 'rgb(255, 255, 255)';
-          whitetextl2.style.color = 'rgb(255, 255, 255)';
-          whitetextl3.style.color = 'rgb(255, 255, 255)';
-          whitetextl4.style.color = 'rgb(255, 255, 255)';
-          
-        } else {
-          monnav.style.backgroundColor = 'rgba(120, 120, 120, 0.2)';
-          whitebrand.style.color = 'rgb(0,0,0)';
-          whitetextl1.style.color = 'rgb(0,0,0)';
-          whitetextl2.style.color = 'rgb(0,0,0)';
-          whitetextl3.style.color = 'rgb(0,0,0)';
-          whitetextl4.style.color = 'rgb(0,0,0)';
-          
-        }
-      });
+      const monnav = document.querySelector('.monnav');
+      const whitebrand = document.querySelector('a.navbar-brand');
+      const navLinks = document.querySelectorAll('a#navlink.nav-link');
+      const scrollPosition = window.scrollY || window.pageYOffset;
+
+      // Define colors
+      const darkColor = 'rgb(0, 0, 0)';
+      const lightColor = 'rgb(255, 255, 255)';
+      const backgroundColor = 'rgba(120, 120, 120, 0.2)';
+
+      // Determine the color based on scroll position
+      let textColor;
+      if (scrollPosition < 1000 || scrollPosition >= 3500) {
+        textColor = darkColor;
+      } else {
+        textColor = lightColor;
+      }
+
+      // Apply styles
+      monnav.style.backgroundColor = backgroundColor;
+      whitebrand.style.color = textColor;
+      navLinks.forEach(link => link.style.color = textColor);
+    });
+
+
+
+
     </script>
     
 </head>
@@ -56,9 +55,9 @@
           <div class="collapse navbar-collapse nav-link navlink list-div" id="navbarNavAltMarkup">
             <div class="navbar-nav navlist">
               <a class="nav-link active l1" id="navlink" aria-current="page" href="#">Home</a>
-              <a class="nav-link l2" id="navlink" href="#">About</a>
-              <a class="nav-link l3 " id="navlink" href="#">Projects</a>
-              <a class="nav-link l4  " id="navlink" href="#" >Contact</a>
+              <a class="nav-link l2" id="navlink" href="#about">About</a>
+              <a class="nav-link l3 " id="navlink" href="#my-projects">Projects</a>
+              <a class="nav-link l4  " id="navlink" href="#contact-me" >Contacts</a>
             </div>
           </div>
         </div>
@@ -102,15 +101,15 @@
       </footer>
       
       
-      <div class="bio">
+      <div class="bio .dark-content" id="about">
         
         <div class="my-5 ">
           <div class= "p-5  text-center " data-bs-theme="dark" >
             <div class="container-fluid py-5 ">
               <img src="." alt="">
-              <h1 class="text-body-emphasis">Full-width jumbotron</h1>
+              <h1 class="text-body-emphasis">Hi there! &#128075; </h1>
               <p class="col-lg-8 mx-auto lead">
-                This takes the basic jumbotron above and makes its background edge-to-edge with a <code>.container</code> inside to align content. Similar to above, it's been recreated with built-in grid and utility classes.
+                I am a Web Developer specializing in JavaScript and Python, with a knack for creating intuitive UI/UX designs. I'm also deeply passionate about football analysis and music production, bringing creativity and analytical thinking to everything I do.
               </p>
             </div>
           </div>
@@ -124,7 +123,7 @@
 
       
       
-      <div class="container marketing pt-3">
+      <div class="container marketing pt-3" id="my-projects">
 
         
         <div class="container marketing pt-3">
@@ -274,11 +273,11 @@
       </div>
       </div>
 
-      <div class="container-fluid fluid-contacts">
+      <div class="container-fluid fluid-contacts" id="contact-me">
         <div class="container contacts">
       <div class="get-in-touch">
-   <h2 class="title">Let Get in touch</h2>
-   <p class="text-center Connected">Stay Connected</p>
+   <h2 class="title">Get in touch</h2>
+   <p class="text-center Connected">Let Stay Connected</p>
    <form class="contact-form my-row">
       <div class="form-field col x-50">
          <input id="name" class="input-text js-input" type="text" required>
@@ -303,7 +302,23 @@
 
 </div>
 
-    
+<div class="container-fluid my-foot">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 my-footer">
+    <div class="col-md-4 d-flex align-items-center">
+      <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+        <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+      </a>
+      <span class="mb-3 mb-md-0 lead fs-6"> © 2024 AbakarLol</span>
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="social" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+      <li class="ms-3"><a class="social" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+      <li class="ms-3"><a class="social" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+    </ul>
+  </footer>
+</div>
+   
     
 
     <script src="script.js"></script>

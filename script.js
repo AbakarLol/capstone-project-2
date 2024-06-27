@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   const dynamicText = document.querySelector('.dynamic-text');
-  const phrases = ["Web Developer", "UI/UX Designer", "Software Engineer","Freelancer", "Tech Enthusiast"];
+  const phrases = ["Web Developer", "UI/UX Designer","Freelancer", "Tech Enthusiast"];
   let phraseIndex = 0;
   let letterIndex = 0;
   let currentPhrase = '';
@@ -106,10 +106,20 @@ if (mediaQuery && !mediaQuery.matches) {
 	}
 }
 
-$( '.js-input' ).keyup(function() {
-	if( $(this).val() ) {
-	   $(this).addClass('not-empty');
-	} else {
-	   $(this).removeClass('not-empty');
-	}
+const elements = document.querySelectorAll('.js-input');
+elements.forEach(element => {
+  if (element.value) {
+    element.classList.add('not-empty');
+  } else {
+    element.classList.remove('not-empty');
+  }
+  
+  element.addEventListener('keyup', () => {
+    if (element.value) {
+      element.classList.add('not-empty');
+    } else {
+      element.classList.remove('not-empty');
+    }
   });
+});
+
