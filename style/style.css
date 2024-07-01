@@ -732,6 +732,8 @@ div.get-in-touch {
 	    border: 2px solid var(--border);
 	    border-radius: 10ch;
       cursor: pointer;
+     
+
    }
 
    .submit-btn:hover {
@@ -1071,7 +1073,7 @@ body > div.navbar > div > nav > div > button{
 
 div.get-in-touch {
 
-   height: 100%;
+   height: 90%;
    padding: 2rem;
    position: relative;
    z-index: 500;
@@ -1155,6 +1157,18 @@ div.get-in-touch {
  }
 
 }
+.submit-btn{
+  width: 100%;
+  background-color:  var(--border);
+  color:white;
+}
+
+submit-btn:hover {
+    
+  background-color:  var(--border);
+  color:white;
+}
+
 .marketing{
   padding-left: 0 ;
   padding-right: 0;
