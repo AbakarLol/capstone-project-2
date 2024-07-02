@@ -445,7 +445,7 @@ a {
   
 }
 
-.marketing p, .marketing h2, .skills h2{
+.marketing p, .marketing h2, .skills h2, h2.title{
   animation: fade both linear;
   
   animation-timeline: view();
@@ -668,10 +668,9 @@ div.get-in-touch {
   
   .title {
      text-align: center;
-     text-transform: uppercase;
-     letter-spacing: 3px;
+     color: rgb(160, 160, 160) ;
+        
      
-     line-height: 48px;
      padding-bottom: 48px;
   }
 }
@@ -1111,10 +1110,9 @@ div.get-in-touch {
   
   .title {
      text-align: center;
-     text-transform: uppercase;
-     letter-spacing: 2px;
      
-     line-height: 100%;
+     
+     
      padding-bottom: 40px;
   }
 }
