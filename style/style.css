@@ -770,7 +770,7 @@ div.get-in-touch {
 }
 
 div.my-foot{
-  background-color : linear-gradient(135deg , rgba(43, 43, 43, 0.5) , rgba(239, 239, 239, 0.5) );
+  background-color : linear-gradient(135deg , rgba(9, 9, 9, 0.5) , rgba(239, 239, 239, 0.5) );
   backdrop-filter: blur(20px);
   color: rgb(0, 113, 227);
   position: relative;
@@ -781,7 +781,7 @@ div.my-foot{
 
 div.my-foot::before{
   content: '';
-  background-color: linear-gradient(circle at center , rgba(49, 48, 48, 0.5) , rgba(239, 239, 239, 0.5) );
+  background-color: linear-gradient(-135deg , rgba(9, 9, 9, 0.5) , rgba(239, 239, 239, 0.5) );
   transform: translate(-50%, -50%) scale(1);
   animation: light-animation 5s infinite;
   pointer-events: none;
@@ -912,9 +912,10 @@ div.my-foot::before{
     width: 100%;
     position: relative;
     margin: 0;
+
     opacity: 1;
     visibility: inherit;
-    padding: 0 0;
+    padding: 0 !important;
     text-align: start;
     z-index: 800;
     backdrop-filter: blur(20px);
@@ -1006,8 +1007,8 @@ body > div.navbar > div > nav > div > button{
 }
 
 .image img{
-  height: 45%;
-  width: 40%;
+  
+  width: 100%;
   position: relative;
   top: 2rem;
   right : 0;
@@ -1280,7 +1281,7 @@ submit-btn:hover {
       
   
       flex-basis: 100%;
-      width: 100%;
+      width: auto;
       position: relative;
       margin: 0;
       opacity: 1;
